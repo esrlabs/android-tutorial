@@ -1,0 +1,12 @@
+task generate {
+    outputs.file file("input.txt")
+    doLast {
+        println "generating"
+        file("input.txt").text = "hello"
+    }
+}
+
+task compile(dependsOn: generate) << {
+    println "compililng"
+    
+}
