@@ -1,0 +1,3 @@
+- the android version should be 17
+- the java should be 1.7
+- create own instance of ActivityController instead of using the Roboelectric one
