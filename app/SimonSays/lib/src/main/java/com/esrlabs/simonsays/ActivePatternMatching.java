@@ -25,7 +25,4 @@ public class ActivePatternMatching {
         }
     }
 
-    public boolean isGameComplete() {
-        return true;
-    }
 }
