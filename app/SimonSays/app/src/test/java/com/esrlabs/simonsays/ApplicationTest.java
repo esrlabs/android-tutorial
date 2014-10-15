@@ -33,7 +33,7 @@ public class ApplicationTest {
   public void startButtonShouldGeneratePatternOfLength1() throws Exception {
     Button startButton = (Button) myActivity.findViewById(R.id.start);
     startButton.callOnClick();
-    verify(game).newGame(myActivity, 2);
+    verify(game).newGame(myActivity, 1);
   }
 
 }
