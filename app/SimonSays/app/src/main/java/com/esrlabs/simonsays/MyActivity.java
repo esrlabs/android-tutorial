@@ -1,4 +1,4 @@
-package com.java.esrlabs.simonsays;
+package com.esrlabs.simonsays;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,8 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.esrlabs.simonsays.GameListener;
-import com.esrlabs.simonsays.SimonSaysGame;
+import com.java.esrlabs.simonsays.R;
 
 
 public class MyActivity extends Activity implements GameListener{

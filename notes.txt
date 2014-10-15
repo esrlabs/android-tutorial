@@ -7,4 +7,5 @@
 # For Windows
 - fixing the "Line too long" error: mklink /j "D:\myshortname"
   "D:\my\long\directory\name\causing\trouble\but\its\not\my\fault\leave\me\alone"
-  and run app from there
+  and run app from there => we should add this to the readme
+
