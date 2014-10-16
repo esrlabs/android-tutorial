@@ -2,8 +2,6 @@ package com.esrlabs.simonsays;
 
 import android.widget.Button;
 
-import com.java.esrlabs.simonsays.R;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
