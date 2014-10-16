@@ -35,6 +35,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
+import org.apache.tools.ant.taskdefs.condition.Os
 task launchDebug(type: Exec, dependsOn: 'installDebug') {
     if (Os.isFamily(Os.FAMILY_WINDOWS)) {
         commandLine 'cmd', '/c', 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'
