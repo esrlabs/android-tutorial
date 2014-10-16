@@ -3,13 +3,23 @@ package com.esrlabs.simonsays;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class PatternPlaybackActivity extends Activity {
 
   private final PatternGenerator patternGenerator;
+  private static final Map<PatternColor, Integer> COLOR_MAPPING = new HashMap<PatternColor, Integer>(){{
+    put(PatternColor.BLUE, Color.BLUE);
+    put(PatternColor.GREEN, Color.GREEN);
+    put(PatternColor.RED, Color.RED);
+  }};
 
   public PatternPlaybackActivity() {
     this(PatternGenerator.create());
@@ -51,11 +61,21 @@ public class PatternPlaybackActivity extends Activity {
   @Override
   protected void onStart() {
     super.onStart();
-    findViewById(R.id.test).setBackgroundColor(Color.WHITE);
-    patternGenerator.generatePattern(level());
+    setBackground(Color.WHITE);
+    Pattern patternColors = patternGenerator.generatePattern(level());
+    for (PatternColor patternColor :patternColors) {
+      Integer color = COLOR_MAPPING.get(patternColor);
+      setBackground(color);
+    }
+
+
+  }
+
+  private void setBackground(int color) {
+    findViewById(R.id.test).setBackgroundColor(color);
   }
 
   private int level() {
-    return getIntent().getIntExtra("level", 1);
+    return getIntent().getIntExtra("level", 5);
   }
 }

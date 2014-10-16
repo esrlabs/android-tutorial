@@ -1,6 +1,7 @@
 package com.esrlabs.simonsays;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import org.junit.Before;
@@ -8,12 +9,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-import org.robolectric.shadows.ShadowLog;
 import org.robolectric.util.ActivityController;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static android.graphics.Color.BLUE;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
@@ -28,13 +30,13 @@ public class PatternPlaybackActivityTest {
 
   @Before
   public void setUp() throws Exception {
-    ShadowLog.stream = System.out;
     patternPlaybackActivity = new PatternPlaybackActivity(patternGenerator);
     controller = ActivityController.of(patternPlaybackActivity);
   }
 
   @Test
   public void generatePatternOfSpecifiedLevel() throws Exception {
+    when(patternGenerator.generatePattern(anyInt())).thenReturn(Pattern.of(PatternColor.BLUE));
     int aGameLevel = 3;
     Intent levelThree = new Intent();
     levelThree.putExtra("level", aGameLevel);
@@ -51,4 +53,33 @@ public class PatternPlaybackActivityTest {
     assertThat(background.getColor(), is(BLUE));
   }
 
+  @Test
+  public void patternPlaybackShowsAGivenColorEverySecond() throws Exception {
+    when(patternGenerator.generatePattern(anyInt())).thenReturn(Pattern.of(PatternColor.BLUE, PatternColor.GREEN));
+    controller.create().start().visible();
+
+    HandlerBasedSequencer sequencer = HandlerBasedSequencer.EVERY_SECOND;
+    sequencer.run(Arrays.asList(
+            new Runnable() {
+              @Override
+              public void run() {
+                assertThatTheBackgroundColorIs();
+              }
+            }
+            ,new Runnable(){
+              @Override
+              public void run() {
+                assertThatTheBackgroundColorIs();
+              }
+
+
+            }
+    ));
+  }
+
+  private void assertThatTheBackgroundColorIs(Color color) {
+    View view = patternPlaybackActivity.findViewById(R.id.test);
+    ColorDrawable background = (ColorDrawable) view.getBackground();
+    assertThat(background.getColor(), is(color));
+  }
 }
