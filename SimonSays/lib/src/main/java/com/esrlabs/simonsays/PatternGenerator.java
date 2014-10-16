@@ -7,6 +7,10 @@ import static java.util.Arrays.asList;
 
 public class PatternGenerator {
 
+    public static PatternGenerator create(){
+        return new PatternGenerator(new JavaRandomElementPicker());
+    }
+
     private final RandomElementPicker colorPicker;
 
     public PatternGenerator(RandomElementPicker colorPicker) {
@@ -14,9 +18,9 @@ public class PatternGenerator {
     }
 
     public Pattern generatePattern(int length) {
-        List<Color> result = new ArrayList<Color>(length );
+        List<PatternColor> result = new ArrayList<PatternColor>(length );
         for(int i = 0; i < length; i++){
-            result.add(colorPicker.pickRandomElement(asList(Color.values())));
+            result.add(colorPicker.pickRandomElement(asList(PatternColor.values())));
         }
         return new Pattern(result);
     }

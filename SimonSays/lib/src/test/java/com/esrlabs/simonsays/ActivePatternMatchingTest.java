@@ -13,31 +13,31 @@ public class ActivePatternMatchingTest {
 
     @Test
     public void onInputReturnsTrueWhenGivenElementMatchesPattern() throws Exception {
-        ActivePatternMatching game = newGame(Color.BLUE, Color.BLUE, Color.RED);
+        ActivePatternMatching game = newGame(PatternColor.BLUE, PatternColor.BLUE, PatternColor.RED);
 
-        game.onInput(Color.BLUE);
-        game.onInput(Color.BLUE);
-        game.onInput(Color.RED);
+        game.onInput(PatternColor.BLUE);
+        game.onInput(PatternColor.BLUE);
+        game.onInput(PatternColor.RED);
 
         verify(listener).onWin();
     }
 
     @Test
     public void onInputReturnsFalseWhenGivenElementMatchesPattern() throws Exception {
-        ActivePatternMatching patternChecker = newGame(Color.BLUE);
-        patternChecker.onInput(Color.RED);
+        ActivePatternMatching patternChecker = newGame(PatternColor.BLUE);
+        patternChecker.onInput(PatternColor.RED);
         verify(listener).onLoose();
     }
 
 
     @Test(expected = NoSuchElementException.class)
     public void throwsExceptionWhenPatternIsAlreadyComplete() throws Exception {
-        ActivePatternMatching patternChecker = newGame(Color.BLUE);
-        patternChecker.onInput(Color.BLUE);
-        patternChecker.onInput(Color.RED);
+        ActivePatternMatching patternChecker = newGame(PatternColor.BLUE);
+        patternChecker.onInput(PatternColor.BLUE);
+        patternChecker.onInput(PatternColor.RED);
     }
 
-    private ActivePatternMatching newGame(Color... colors) {
+    private ActivePatternMatching newGame(PatternColor... colors) {
         return new ActivePatternMatching(Pattern.of(colors), listener);
     }
 }

@@ -1,9 +1,11 @@
 package com.esrlabs.simonsays;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class NewGameActivity extends Activity {
@@ -12,6 +14,14 @@ public class NewGameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
+        findViewById(R.id.startGameButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewGameActivity.this, PatternPlaybackActivity.class);
+                intent.putExtra("level", 3);
+                startActivity(intent);
+            }
+        });
     }
 
 

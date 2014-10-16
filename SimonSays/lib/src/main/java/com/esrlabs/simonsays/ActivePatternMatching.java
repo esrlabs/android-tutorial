@@ -7,7 +7,7 @@ import java.util.Iterator;
  */
 public class ActivePatternMatching {
 
-    private final Iterator<Color> correctPattern;
+    private final Iterator<PatternColor> correctPattern;
     private final GameListener listener;
 
     public ActivePatternMatching(Pattern correctPattern, GameListener listener) {
@@ -15,7 +15,7 @@ public class ActivePatternMatching {
         this.correctPattern = correctPattern.iterator();
     }
 
-    public void onInput(Color color) {
+    public void onInput(PatternColor color) {
         if(color != correctPattern.next()){
            listener.onLoose();
            return;

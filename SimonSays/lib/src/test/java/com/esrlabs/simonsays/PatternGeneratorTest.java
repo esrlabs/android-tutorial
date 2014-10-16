@@ -1,16 +1,11 @@
 package com.esrlabs.simonsays;
 
-import com.esrlabs.simonsays.Color;
-import com.esrlabs.simonsays.PatternGenerator;
-import com.esrlabs.simonsays.RandomElementPicker;
-import com.esrlabs.simonsays.Pattern;
-
 import java.util.Iterator;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static com.esrlabs.simonsays.Color.*;
+import static com.esrlabs.simonsays.PatternColor.*;
 
 /**
  * Created by andreibechet on 06/10/14.
@@ -28,7 +23,7 @@ public class PatternGeneratorTest {
     }
 
     private class ColorPicker implements RandomElementPicker{
-        private final Iterator<Color> iterator;
+        private final Iterator<PatternColor> iterator;
 
         public ColorPicker(Pattern expectedPattern) {
             iterator = expectedPattern.get().iterator();

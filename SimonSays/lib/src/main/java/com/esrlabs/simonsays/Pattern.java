@@ -8,15 +8,15 @@ import static java.util.Arrays.asList;
 /**
  * Created by andreibechet on 06/10/14.
  */
-public class Pattern implements Iterable<Color> {
+public class Pattern implements Iterable<PatternColor> {
 
-    private final List<Color> colors;
+    private final List<PatternColor> colors;
 
-    public Pattern(List<Color> colors) {
+    public Pattern(List<PatternColor> colors) {
         this.colors = colors;
     }
 
-    public static Pattern of(Color... colors) {
+    public static Pattern of(PatternColor... colors) {
         return new Pattern(asList(colors));
     }
 
@@ -42,12 +42,12 @@ public class Pattern implements Iterable<Color> {
         return colors.size();
     }
 
-    public List<Color> get() {
+    public List<PatternColor> get() {
         return colors;
     }
 
     @Override
-    public Iterator<Color> iterator() {
+    public Iterator<PatternColor> iterator() {
         return colors.iterator();
     }
 }

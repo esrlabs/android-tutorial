@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.esrlabs.simonsays.PatternPlaybackActivity"
+            android:label="@string/title_activity_pattern_playback" >
+        </activity>
     </application>
 
 </manifest>
