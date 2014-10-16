@@ -7,9 +7,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static com.esrlabs.simonsays.PatternColor.*;
 
-/**
- * Created by andreibechet on 06/10/14.
- */
 public class PatternGeneratorTest {
 
 
@@ -18,7 +15,7 @@ public class PatternGeneratorTest {
     public void generatesRandomColorSequencesOfGivenLength() throws Exception {
         Pattern expectedPattern = Pattern.of(RED, RED, BLUE, GREEN);
         PatternGenerator game = new PatternGenerator(new ColorPicker(expectedPattern));
-        Pattern generatedPattern = game.generatePattern(expectedPattern.size());
+        Pattern generatedPattern = game.generatePattern(4);
         assertThat(generatedPattern, is(expectedPattern));
     }
 

@@ -20,6 +20,10 @@
             android:name="com.esrlabs.simonsays.PatternPlaybackActivity"
             android:label="@string/title_activity_pattern_playback" >
         </activity>
+        <activity
+            android:name="com.esrlabs.simonsays.ColorInputActivity"
+            android:label="@string/title_activity_color_input" >
+        </activity>
     </application>
 
 </manifest>

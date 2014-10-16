@@ -2,9 +2,6 @@ package com.esrlabs.simonsays;
 
 import java.util.Iterator;
 
-/**
- * Created by andreibechet on 06/10/14.
- */
 public class ActivePatternMatching {
 
     private final Iterator<PatternColor> correctPattern;

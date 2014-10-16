@@ -61,19 +61,20 @@ dependencies {
     androidTestCompile 'org.mockito:mockito-all:1.9.5'
 }
 
+import org.gradle.logging.StyledTextOutputFactory
+import static org.gradle.logging.StyledTextOutput.Style
+
 robolectric {
-    include '**/*Test.class'
 
-    // configure max heap size of the test JVM
-    maxHeapSize = '2048m'
+    def out = services.get(StyledTextOutputFactory).create("colored-test-output")
+    out.style(Style.Normal)
 
-    // configure the test JVM arguments
-    jvmArgs '-XX:MaxPermSize=512m', '-XX:-UseSplitVerifier'
-
-    // use afterTest to listen to the test execution results
     afterTest { descriptor, result ->
-        println "Executing ${descriptor.className}.$descriptor.name: ${result}"
+        def style = result.failedTestCount > 0 ? Style.Failure : Style.Success
+        out.withStyle(style).println("Test ${descriptor.className}#$descriptor.name: $result")
+        result.getException()?.printStackTrace();
     }
+
 }
 
 import org.apache.tools.ant.taskdefs.condition.Os
