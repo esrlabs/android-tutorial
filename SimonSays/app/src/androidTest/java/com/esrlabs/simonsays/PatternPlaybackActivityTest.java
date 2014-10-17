@@ -13,6 +13,7 @@ import org.robolectric.util.ActivityController;
 import static android.graphics.Color.BLUE;
 import static android.graphics.Color.GREEN;
 import static android.graphics.Color.WHITE;
+import static com.esrlabs.simonsays.ColorInputActivity.EXTRA_PATTERN;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertFalse;
@@ -70,7 +71,7 @@ public class PatternPlaybackActivityTest {
     scheduler.runNext();
     scheduler.runNext();
     Intent expectedIntent = new Intent(patternPlaybackActivity, ColorInputActivity.class);
-    expectedIntent.putExtra("pattern", pattern.toArray());
+    expectedIntent.putExtra(EXTRA_PATTERN, pattern.toArray());
     assertThat(shadowOf(patternPlaybackActivity).getNextStartedActivity(), is(expectedIntent));
   }
 

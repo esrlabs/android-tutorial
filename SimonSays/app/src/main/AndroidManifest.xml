@@ -24,6 +24,14 @@
             android:name="com.esrlabs.simonsays.ColorInputActivity"
             android:label="@string/title_activity_color_input" >
         </activity>
+        <activity
+            android:name="com.esrlabs.simonsays.SuccessViewActivity"
+            android:label="@string/title_activity_success_view" >
+        </activity>
+        <activity
+            android:name="com.esrlabs.simonsays.FailViewActivity"
+            android:label="@string/title_activity_fail_view" >
+        </activity>
     </application>
 
 </manifest>

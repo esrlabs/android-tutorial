@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 import static android.graphics.Color.WHITE;
+import static com.esrlabs.simonsays.ColorInputActivity.EXTRA_PATTERN;
 
 
 public class PatternPlaybackActivity extends Activity {
@@ -41,6 +43,7 @@ public class PatternPlaybackActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    this.requestWindowFeature(Window.FEATURE_NO_TITLE);
     setContentView(R.layout.activity_pattern_playback);
   }
 
@@ -83,7 +86,7 @@ public class PatternPlaybackActivity extends Activity {
       @Override
       public void run() {
         Intent intent = new Intent(PatternPlaybackActivity.this, ColorInputActivity.class);
-        intent.putExtra("pattern", patternColors.toArray());
+        intent.putExtra(EXTRA_PATTERN, patternColors.toArray());
         startActivity(intent);
       }
     });

@@ -59,6 +59,7 @@ dependencies {
         exclude module: 'wagon-provider-api'
     }
     androidTestCompile 'org.mockito:mockito-all:1.9.5'
+    compile 'com.android.support:support-v4:20.0.0'
 }
 
 import org.gradle.logging.StyledTextOutputFactory
@@ -78,6 +79,7 @@ robolectric {
 }
 
 import org.apache.tools.ant.taskdefs.condition.Os
+
 task launchDebug(type: Exec, dependsOn: 'installDebug') {
     if (Os.isFamily(Os.FAMILY_WINDOWS)) {
         commandLine 'cmd', '/c', 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'

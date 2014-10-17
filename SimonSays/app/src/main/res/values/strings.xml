@@ -6,5 +6,11 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_pattern_playback">PatternPlaybackActivity</string>
     <string name="title_activity_color_input">ColorInputActivity</string>
+    <string name="title_activity_success_view">SuccessViewActivity</string>
+    <string name="success">YAY!</string>
+    <string name="fail">DOH!</string>
+    <string name="title_activity_fail_view">FailViewActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>
