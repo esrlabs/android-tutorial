@@ -2,6 +2,8 @@ package com.esrlabs.simonsays;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.widget.TextView;
+import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +21,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.robolectric.Robolectric.shadowOf;
 
-@Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
+@Config(manifest = "src/main/AndroidManifest.xml", resourceDir = "res", emulateSdk = 18)
 @RunWith(RobolectricTestRunner.class)
 public class ColorInputActivityTest {
 
@@ -29,6 +31,13 @@ public class ColorInputActivityTest {
     @Before
     public void setUp() throws Exception {
         colorInputActivity = new ColorInputActivity();
+    }
+
+    @Test
+    public void showsCurrentLevel() throws Exception {
+        startActivityWith(Pattern.of(RED));
+        TextView levelView = (TextView) colorInputActivity.findViewById(R.id.currentLevelLabel);
+        assertThat(levelView.getText(), CoreMatchers.<CharSequence>is(String.valueOf(currentLevel)));
     }
 
     @Test

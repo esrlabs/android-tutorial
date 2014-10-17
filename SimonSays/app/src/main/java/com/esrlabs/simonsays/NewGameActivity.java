@@ -20,7 +20,7 @@ public class NewGameActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_new_game);
-        findViewById(R.id.startGameButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.startView).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NewGameActivity.this, PatternPlaybackActivity.class);

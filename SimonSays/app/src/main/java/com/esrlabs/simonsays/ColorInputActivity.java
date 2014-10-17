@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 import static com.esrlabs.simonsays.PatternColor.*;
 
@@ -62,6 +63,9 @@ public class ColorInputActivity extends ActivityWithLevel implements GameListene
     @Override
     protected void onStart() {
         super.onStart();
+
+        ((TextView) findViewById(R.id.currentLevelLabel)).setText(String.valueOf(level()));
+
         Pattern pattern = readPatternFromIntent();
         activePatternMatching = new ActivePatternMatching(pattern, this);
 

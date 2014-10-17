@@ -27,7 +27,7 @@ public class NewGameActivityTest {
 
     @Test
     public void newGameButtonStartsPatternPlaybackForLevelThree() throws Exception {
-        View startButton = newGameActivity.findViewById(R.id.startGameButton);
+        View startButton = newGameActivity.findViewById(R.id.startView);
         startButton.callOnClick();
         Intent expectedIntent = new Intent(newGameActivity, PatternPlaybackActivity.class);
         assertThat(shadowOf(newGameActivity).getNextStartedActivity(), is(expectedIntent));
