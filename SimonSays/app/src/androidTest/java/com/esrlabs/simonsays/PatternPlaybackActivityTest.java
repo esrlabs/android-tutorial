@@ -56,6 +56,8 @@ public class PatternPlaybackActivityTest {
     scheduler.runNext();
     assertBackgroundIs(BLUE);
     scheduler.runNext();
+    assertBackgroundIs(WHITE);
+    scheduler.runNext();
     assertBackgroundIs(GREEN);
   }
 
@@ -64,6 +66,7 @@ public class PatternPlaybackActivityTest {
     Pattern pattern = Pattern.of(PatternColor.BLUE);
     when(patternGenerator.generatePattern(anyInt())).thenReturn(pattern);
     controller.create().start().visible();
+    scheduler.runNext();
     scheduler.runNext();
     scheduler.runNext();
     Intent expectedIntent = new Intent(patternPlaybackActivity, ColorInputActivity.class);

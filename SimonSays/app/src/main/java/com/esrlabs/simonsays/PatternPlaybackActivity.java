@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static android.graphics.Color.WHITE;
 
 
 public class PatternPlaybackActivity extends Activity {
@@ -21,6 +24,7 @@ public class PatternPlaybackActivity extends Activity {
     put(PatternColor.RED, Color.RED);
   }};
   public static final int FREQUENCY_IN_MS = 1000;
+  private static final String TAG = "SimonSays";
 
   private final PatternGenerator patternGenerator;
   private final PeriodicScheduler periodicScheduler;
@@ -32,7 +36,7 @@ public class PatternPlaybackActivity extends Activity {
   public PatternPlaybackActivity(PatternGenerator patternGenerator, PeriodicScheduler periodicScheduler) {
     this.patternGenerator = patternGenerator;
     this.periodicScheduler = periodicScheduler;
-  }
+      }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +70,7 @@ public class PatternPlaybackActivity extends Activity {
   @Override
   protected void onStart() {
     super.onStart();
-    setBackground(Color.WHITE);
+    setBackground(WHITE);
     List<Runnable> playback = new ArrayList<Runnable>();
     Pattern patternColors = patternGenerator.generatePattern(level());
     showEachColor(patternColors, playback);
@@ -87,14 +91,19 @@ public class PatternPlaybackActivity extends Activity {
 
   private void showEachColor(Pattern patternColors, List<Runnable> playback) {
     for (final PatternColor patternColor :patternColors) {
-      playback.add(new Runnable() {
-        @Override
-        public void run() {
-          Integer color = COLOR_MAPPING.get(patternColor);
-          setBackground(color);
-        }
-      });
+      showColor(playback, COLOR_MAPPING.get(patternColor));
+      showColor(playback, WHITE);
     }
+  }
+
+  private void showColor(List<Runnable> playback, final int color) {
+    playback.add(new Runnable() {
+      @Override
+      public void run() {
+        Log.i(TAG, "Set color to " + color);
+        setBackground(color);
+      }
+    });
   }
 
   private void setBackground(int color) {

@@ -8,11 +8,9 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-import org.robolectric.util.ActivityController;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.robolectric.Robolectric.shadowOf;
 
 @Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
@@ -35,4 +33,5 @@ public class NewGameActivityTest {
         expectedIntent.putExtra("level", 3);
         assertThat(shadowOf(newGameActivity).getNextStartedActivity(), is(expectedIntent));
     }
+
 }
