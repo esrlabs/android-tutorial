@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class FailViewActivity extends Activity {
+public class FailViewActivity extends ActivityWithLevel {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

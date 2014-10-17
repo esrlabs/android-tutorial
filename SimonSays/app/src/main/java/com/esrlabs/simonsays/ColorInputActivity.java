@@ -11,7 +11,7 @@ import android.view.Window;
 import static com.esrlabs.simonsays.PatternColor.*;
 
 
-public class ColorInputActivity extends Activity implements GameListener {
+public class ColorInputActivity extends ActivityWithLevel implements GameListener {
 
     public static final String EXTRA_PATTERN = "pattern";
     private ActivePatternMatching activePatternMatching;
@@ -64,6 +64,7 @@ public class ColorInputActivity extends Activity implements GameListener {
         super.onStart();
         Pattern pattern = readPatternFromIntent();
         activePatternMatching = new ActivePatternMatching(pattern, this);
+
     }
 
     private Pattern readPatternFromIntent() {
@@ -80,6 +81,5 @@ public class ColorInputActivity extends Activity implements GameListener {
     public void onLoose() {
         Intent intent = new Intent(ColorInputActivity.this, FailViewActivity.class);
         startActivity(intent);
-
     }
 }

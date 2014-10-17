@@ -30,7 +30,6 @@ public class NewGameActivityTest {
         View startButton = newGameActivity.findViewById(R.id.startGameButton);
         startButton.callOnClick();
         Intent expectedIntent = new Intent(newGameActivity, PatternPlaybackActivity.class);
-        expectedIntent.putExtra("level", 3);
         assertThat(shadowOf(newGameActivity).getNextStartedActivity(), is(expectedIntent));
     }
 

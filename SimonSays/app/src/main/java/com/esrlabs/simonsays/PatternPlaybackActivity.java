@@ -16,9 +16,10 @@ import java.util.Map;
 
 import static android.graphics.Color.WHITE;
 import static com.esrlabs.simonsays.ColorInputActivity.EXTRA_PATTERN;
+import static com.esrlabs.simonsays.NewGameActivity.EXTRA_LEVEL;
 
 
-public class PatternPlaybackActivity extends Activity {
+public class PatternPlaybackActivity extends ActivityWithLevel {
 
   private static final Map<PatternColor, Integer> COLOR_MAPPING = new HashMap<PatternColor, Integer>(){{
     put(PatternColor.BLUE, Color.BLUE);
@@ -87,6 +88,7 @@ public class PatternPlaybackActivity extends Activity {
       public void run() {
         Intent intent = new Intent(PatternPlaybackActivity.this, ColorInputActivity.class);
         intent.putExtra(EXTRA_PATTERN, patternColors.toArray());
+        intent.putExtra(EXTRA_LEVEL, level());
         startActivity(intent);
       }
     });
@@ -113,7 +115,4 @@ public class PatternPlaybackActivity extends Activity {
     findViewById(R.id.patternPlayback).setBackgroundColor(color);
   }
 
-  private int level() {
-    return getIntent().getIntExtra("level", 5);
-  }
 }

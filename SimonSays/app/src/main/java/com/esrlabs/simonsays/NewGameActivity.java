@@ -11,6 +11,9 @@ import android.view.Window;
 
 public class NewGameActivity extends Activity {
 
+    public static final int DEFAULT_LEVEL = 1;
+    public static final String EXTRA_LEVEL = "level";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +24,6 @@ public class NewGameActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NewGameActivity.this, PatternPlaybackActivity.class);
-                intent.putExtra("level", 3);
                 startActivity(intent);
             }
         });

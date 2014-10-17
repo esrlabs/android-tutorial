@@ -1,21 +1,34 @@
 package com.esrlabs.simonsays;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 
 
-public class SuccessViewActivity extends Activity {
+public class SuccessViewActivity extends ActivityWithLevel {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_success_view);
+        findViewById(R.id.successView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SuccessViewActivity.this, PatternPlaybackActivity.class));
+            }
+        });
+
     }
 
+    @Override
+    protected int level() {
+        return super.level() + 1;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -13,7 +13,9 @@ import org.robolectric.util.ActivityController;
 import static android.graphics.Color.BLUE;
 import static android.graphics.Color.GREEN;
 import static android.graphics.Color.WHITE;
+import static com.esrlabs.simonsays.Activites.nextActivity;
 import static com.esrlabs.simonsays.ColorInputActivity.EXTRA_PATTERN;
+import static com.esrlabs.simonsays.NewGameActivity.EXTRA_LEVEL;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertFalse;
@@ -31,27 +33,28 @@ public class PatternPlaybackActivityTest {
   private PatternPlaybackActivity patternPlaybackActivity;
   private ActivityController<PatternPlaybackActivity> controller;
   private ManualScheduler scheduler = new ManualScheduler();
+  private int currentLevel = 3;
 
   @Before
   public void setUp() throws Exception {
     patternPlaybackActivity = new PatternPlaybackActivity(patternGenerator, scheduler);
     controller = ActivityController.of(patternPlaybackActivity);
+    Intent levelThree = new Intent();
+    levelThree.putExtra(EXTRA_LEVEL, currentLevel);
+    controller.withIntent(levelThree).create();
   }
 
   @Test
   public void generatePatternOfSpecifiedLevel() throws Exception {
     when(patternGenerator.generatePattern(anyInt())).thenReturn(Pattern.of(PatternColor.BLUE));
-    int aGameLevel = 3;
-    Intent levelThree = new Intent();
-    levelThree.putExtra("level", aGameLevel);
-    controller.withIntent(levelThree).create().start().visible();
-    verify(patternGenerator).generatePattern(aGameLevel);
+    controller.start().visible();
+    verify(patternGenerator).generatePattern(currentLevel);
   }
 
   @Test
   public void patternPlaybackShowsANewColorEverySecond() throws Exception {
     when(patternGenerator.generatePattern(anyInt())).thenReturn(Pattern.of(PatternColor.BLUE, PatternColor.GREEN));
-    controller.create().start().visible();
+    controller.start().visible();
     assertThat(scheduler.getFrequencyInMs(), is(1000));
     assertBackgroundIs(WHITE);
     scheduler.runNext();
@@ -66,13 +69,14 @@ public class PatternPlaybackActivityTest {
   public void patternPlaybackSwitchesToColorInput() throws Exception {
     Pattern pattern = Pattern.of(PatternColor.BLUE);
     when(patternGenerator.generatePattern(anyInt())).thenReturn(pattern);
-    controller.create().start().visible();
+    controller.start().visible();
     scheduler.runNext();
     scheduler.runNext();
     scheduler.runNext();
     Intent expectedIntent = new Intent(patternPlaybackActivity, ColorInputActivity.class);
     expectedIntent.putExtra(EXTRA_PATTERN, pattern.toArray());
-    assertThat(shadowOf(patternPlaybackActivity).getNextStartedActivity(), is(expectedIntent));
+    expectedIntent.putExtra(EXTRA_LEVEL, currentLevel);
+    assertThat(nextActivity(patternPlaybackActivity), is(expectedIntent));
   }
 
   private void assertBackgroundIs(int expectedColor) {
