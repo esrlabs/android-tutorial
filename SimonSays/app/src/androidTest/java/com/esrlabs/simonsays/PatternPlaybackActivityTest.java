@@ -16,6 +16,7 @@ import static com.esrlabs.simonsays.ColorInputActivity.EXTRA_PATTERN;
 import static com.esrlabs.simonsays.NewGameActivity.EXTRA_LEVEL;
 import static com.esrlabs.simonsays.PatternPlaybackActivity.FREQUENCY_IN_MS;
 import static com.esrlabs.simonsays.helpers.Activites.nextActivity;
+import static junit.framework.Assert.fail;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyInt;

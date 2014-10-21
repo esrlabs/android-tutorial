@@ -1,18 +1,16 @@
-#Session 2: Android & Robolectric
+#Session 4: Android & Robolectric
 
-##Goal
+###Goal
 
-Learn how to build and test and Android app. 
-
-##Task
-
-After we implemented our game engine in the previous session, it is now time to implement the actual Android app. The app should support the following features:
+The goal of this session is to learn how to build and test an Android app. After we implemented our game engine in the previous session, it is now time to implement the actual Android app. The app should support the following features:
 
 1. The app starts with the visual playback of a color sequence of length 1.
 1. The player enters one color after the other.
 1. If the entered sequence: 
      * matches the expected sequence, a new game starts with an incremented pattern length.
      * does **not** match the expected sequence, the game is over.
+
+The challenge is to cover as much functionality with your unit tests as possible.
 
 ###Steps
 
@@ -45,19 +43,74 @@ After we implemented our game engine in the previous session, it is now time to 
             >>    androidTestCompile 'junit:junit-dep:4.11'
                }
 
+
+###Testing with Robolectric 
+
+A simple activity test with Robolectric.
+
+```java
+@Test
+public void clickOnMyButtonStartsNewActitiy(){
+  // create activity and run lifecycle
+  MyActivity myActivity = Robolectric.buildActivity(MyActivity.class)
+                                            .create()
+                                            .start()
+                                            .visible().get();
+
+  // get button from our activity
+  View myButton = myActivity.findViewById(R.id.myButton);
+  myButton.callOnClick();
+
+  // define the expected intent
+  Intent expectedIntent = new Intent(myActivity, NextActivity.class);
+  assertThat(shadowOf(myActivity).getNextStartedActivity(), is(expectedIntent));
+}
+```
+
+It is easy to test if an activity handles intents correctly. 
+
+```java
+@Test
+public void sendingIntentsToActivities(){
+  Intent aSimpleIntent = new Intent();
+  aSimpleIntent.putExtra("greeting", "Hello World"));
+
+  MyActivity myActivity = Robolectric.buildActivity(MyActivity.class)
+                                            .create().withIntent(aSimpleIntent).get();
+
+  Intent actualIntent = myActivity.getIntent();
+  assertThat(actualIntent, is(aSimpleItent));
+  assertThat(actualIntent.getExtra("greeting"), is("Hello World"));
+}
+```
+
+Mocking is a good approach to test the interaction between the Android UI and our game engine.
+
+```java
+@Test
+public void clickOnStartButtonStartsGame(){
+  // create a mock collaborator (here we use Mockito)
+  Game aGame = mock(Game.class);
+
+  // manually create the activity to inject our mock
+  MyActivity myActivity = new MyActivity(game);
+  ActivityController.of(myActivity).create().start().visible();
+
+  // trigger start button 
+  View startButton = myActivity.findViewById(R.id.startButton);
+  startButton.callOnClick();
+
+  // verify that the method Game#start() has been called
+  verify(aGame).start();
+}
+```
+
+
 ###Things to watch our for
 
 - Do not block the [UI thread](https://developer.android.com/training/multiple-threads/communicate-ui.html).
 
 ###Tips & Tricks
-
-- Android gradle tasks
-
-    ```
-    $./gradlew assembleDebug  # creates a debug version of your app
-    $./gradlew installDebug   # installs a debug version to any connected device or emulator
-    $./gradlew test 
-    ```
 
 - Delayed execution on the UI thread (or any other thread with a [Looper](http://developer.android.com/reference/android/os/Looper.html)):
  
