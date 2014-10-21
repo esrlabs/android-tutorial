@@ -27,23 +27,31 @@ public class ColorInputActivity extends ActivityWithLevel implements GameListene
 
   private void registerOnClickListener(int buttonId, final PatternColor patternColor) {
     final View button = findViewById(buttonId);
+    enterColorOnClick(patternColor, button);
+    addButtonPressEffect(button);
+  }
+
+  private void enterColorOnClick(final PatternColor patternColor, View button) {
     button.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         activePatternMatching.onInput(patternColor);
       }
     });
+  }
+
+  private void addButtonPressEffect(final View button) {
     final AlphaAnimation alphaDown = new AlphaAnimation(1.0f, 0.5f);
-    final AlphaAnimation alphaUp = new AlphaAnimation(0.5f, 1.0f);
     alphaDown.setDuration(100);
-    alphaUp.setDuration(100);
     alphaDown.setFillAfter(true);
+
+    final AlphaAnimation alphaUp = new AlphaAnimation(0.5f, 1.0f);
+    alphaUp.setDuration(100);
     alphaUp.setFillAfter(true);
 
     button.setOnTouchListener(new View.OnTouchListener() {
       @Override
       public boolean onTouch(View v, MotionEvent event) {
-        // TODO Auto-generated method stub
         if (event.getAction() == MotionEvent.ACTION_DOWN)
           button.startAnimation(alphaDown);
         if (event.getAction() == MotionEvent.ACTION_UP)
