@@ -20,7 +20,7 @@ import static com.esrlabs.simonsays.NewGameActivity.EXTRA_LEVEL;
 public class PatternPlaybackActivity extends ActivityWithLevel {
 
     private Map<PatternColor, Integer> colorMapping;
-    public static final int FREQUENCY_IN_MS = 1000;
+    public static final int FREQUENCY_IN_MS = 500;
     private static final String TAG = "SimonSays";
 
     private final PatternGenerator patternGenerator;
