@@ -15,6 +15,8 @@ import static android.graphics.Color.WHITE;
 import static com.esrlabs.simonsays.Activites.nextActivity;
 import static com.esrlabs.simonsays.ColorInputActivity.EXTRA_PATTERN;
 import static com.esrlabs.simonsays.NewGameActivity.EXTRA_LEVEL;
+import static com.esrlabs.simonsays.PatternPlaybackActivity.FREQUENCY_IN_MS;
+import static junit.framework.Assert.fail;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
@@ -53,7 +55,7 @@ public class PatternPlaybackActivityTest {
     public void patternPlaybackShowsANewColorEverySecond() throws Exception {
         when(patternGenerator.generatePattern(anyInt())).thenReturn(Pattern.of(PatternColor.BLUE, PatternColor.GREEN));
         controller.start().visible();
-        assertThat(scheduler.getFrequencyInMs(), is(1000));
+        assertThat(scheduler.getFrequencyInMs(), is(FREQUENCY_IN_MS));
         assertBackgroundIs(WHITE);
         scheduler.runNext();
         assertBackgroundIs(color(R.color.blue));
@@ -65,7 +67,6 @@ public class PatternPlaybackActivityTest {
 
     private int color(int colorId) {
         return patternPlaybackActivity.getResources().getColor(colorId);
-
     }
 
     @Test
