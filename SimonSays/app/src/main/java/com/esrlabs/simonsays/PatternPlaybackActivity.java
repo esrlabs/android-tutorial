@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import com.esrlabs.simonsays.concurrent.HandlerBasedPeriodicScheduler;
+import com.esrlabs.simonsays.concurrent.PeriodicScheduler;
 
 import java.util.ArrayList;
 import java.util.HashMap;

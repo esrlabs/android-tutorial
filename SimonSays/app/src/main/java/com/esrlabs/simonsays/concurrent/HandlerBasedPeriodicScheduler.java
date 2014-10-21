@@ -1,4 +1,4 @@
-package com.esrlabs.simonsays;
+package com.esrlabs.simonsays.concurrent;
 
 import android.os.Handler;
 

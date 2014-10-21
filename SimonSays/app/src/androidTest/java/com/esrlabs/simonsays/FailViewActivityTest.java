@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
-import static com.esrlabs.simonsays.Activites.nextActivity;
-import static com.esrlabs.simonsays.Intents.forLevel;
+import static com.esrlabs.simonsays.helpers.Activites.nextActivity;
+import static com.esrlabs.simonsays.helpers.Intents.forLevel;
 import static com.esrlabs.simonsays.NewGameActivity.EXTRA_LEVEL;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

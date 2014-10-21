@@ -1,8 +1,10 @@
-package com.esrlabs.simonsays;
+package com.esrlabs.simonsays.helpers;
+
+import com.esrlabs.simonsays.concurrent.PeriodicScheduler;
 
 import java.util.Iterator;
 
-class ManualScheduler implements PeriodicScheduler{
+public class ManualScheduler implements PeriodicScheduler {
 
   private Iterator<Runnable> runnables;
   private int frequencyInMs;

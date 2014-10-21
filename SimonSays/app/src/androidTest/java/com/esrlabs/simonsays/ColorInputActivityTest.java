@@ -11,11 +11,12 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.util.ActivityController;
 
-import static com.esrlabs.simonsays.Activites.nextActivity;
+import static com.esrlabs.simonsays.helpers.Activites.nextActivity;
 import static com.esrlabs.simonsays.ColorInputActivity.EXTRA_PATTERN;
 import static com.esrlabs.simonsays.NewGameActivity.EXTRA_LEVEL;
 import static com.esrlabs.simonsays.PatternColor.GREEN;
 import static com.esrlabs.simonsays.PatternColor.RED;
+import static com.esrlabs.simonsays.helpers.Activites.nextActivity;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;

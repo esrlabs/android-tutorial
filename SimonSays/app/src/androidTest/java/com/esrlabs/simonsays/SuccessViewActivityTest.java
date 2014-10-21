@@ -1,13 +1,15 @@
 package com.esrlabs.simonsays;
 
 import android.content.Intent;
+import com.esrlabs.simonsays.helpers.Activites;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
-import static com.esrlabs.simonsays.Intents.forLevel;
+import static com.esrlabs.simonsays.helpers.Activites.nextActivity;
+import static com.esrlabs.simonsays.helpers.Intents.forLevel;
 import static com.esrlabs.simonsays.NewGameActivity.EXTRA_LEVEL;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -29,7 +31,7 @@ public class SuccessViewActivityTest {
         successViewActivity.findViewById(R.id.successView).callOnClick();
         Intent intent = new Intent(successViewActivity, PatternPlaybackActivity.class);
         intent.putExtra(EXTRA_LEVEL, currentLevel + 1);
-        assertThat(Activites.nextActivity(successViewActivity), is(intent));
+        assertThat(nextActivity(successViewActivity), is(intent));
     }
 
 }

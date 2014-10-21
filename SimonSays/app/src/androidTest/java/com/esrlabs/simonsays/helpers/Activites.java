@@ -1,4 +1,4 @@
-package com.esrlabs.simonsays;
+package com.esrlabs.simonsays.helpers;
 
 import android.app.Activity;
 import android.content.Intent;
