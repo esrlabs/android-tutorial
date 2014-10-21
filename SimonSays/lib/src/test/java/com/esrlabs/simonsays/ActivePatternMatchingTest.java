@@ -9,35 +9,35 @@ import static org.mockito.Mockito.verify;
 
 public class ActivePatternMatchingTest {
 
-    private GameListener listener = mock(GameListener.class);
+  private GameListener listener = mock(GameListener.class);
 
-    @Test
-    public void onInputReturnsTrueWhenGivenElementMatchesPattern() throws Exception {
-        ActivePatternMatching game = newGame(PatternColor.BLUE, PatternColor.BLUE, PatternColor.RED);
+  @Test
+  public void onInputReturnsTrueWhenGivenElementMatchesPattern() throws Exception {
+    ActivePatternMatching game = newGame(PatternColor.BLUE, PatternColor.BLUE, PatternColor.RED);
 
-        game.onInput(PatternColor.BLUE);
-        game.onInput(PatternColor.BLUE);
-        game.onInput(PatternColor.RED);
+    game.onInput(PatternColor.BLUE);
+    game.onInput(PatternColor.BLUE);
+    game.onInput(PatternColor.RED);
 
-        verify(listener).onWin();
-    }
+    verify(listener).onWin();
+  }
 
-    @Test
-    public void onInputReturnsFalseWhenGivenElementMatchesPattern() throws Exception {
-        ActivePatternMatching patternChecker = newGame(PatternColor.BLUE);
-        patternChecker.onInput(PatternColor.RED);
-        verify(listener).onLoose();
-    }
+  @Test
+  public void onInputReturnsFalseWhenGivenElementMatchesPattern() throws Exception {
+    ActivePatternMatching patternChecker = newGame(PatternColor.BLUE);
+    patternChecker.onInput(PatternColor.RED);
+    verify(listener).onLoose();
+  }
 
 
-    @Test(expected = NoSuchElementException.class)
-    public void throwsExceptionWhenPatternIsAlreadyComplete() throws Exception {
-        ActivePatternMatching patternChecker = newGame(PatternColor.BLUE);
-        patternChecker.onInput(PatternColor.BLUE);
-        patternChecker.onInput(PatternColor.RED);
-    }
+  @Test(expected = NoSuchElementException.class)
+  public void throwsExceptionWhenPatternIsAlreadyComplete() throws Exception {
+    ActivePatternMatching patternChecker = newGame(PatternColor.BLUE);
+    patternChecker.onInput(PatternColor.BLUE);
+    patternChecker.onInput(PatternColor.RED);
+  }
 
-    private ActivePatternMatching newGame(PatternColor... colors) {
-        return new ActivePatternMatching(Pattern.of(colors), listener);
-    }
+  private ActivePatternMatching newGame(PatternColor... colors) {
+    return new ActivePatternMatching(Pattern.of(colors), listener);
+  }
 }

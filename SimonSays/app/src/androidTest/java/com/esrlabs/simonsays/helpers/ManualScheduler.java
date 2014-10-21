@@ -19,7 +19,7 @@ public class ManualScheduler implements PeriodicScheduler {
     return frequencyInMs;
   }
 
-  public void runNext(){
+  public void runNext() {
     runnables.next().run();
   }
 

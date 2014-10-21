@@ -7,12 +7,12 @@ import java.util.Iterator;
 public class HandlerBasedPeriodicScheduler implements PeriodicScheduler {
 
   @Override
-  public void schedule(final Iterable<Runnable> runnables, final int frequencyInMs){
+  public void schedule(final Iterable<Runnable> runnables, final int frequencyInMs) {
     schedule(runnables.iterator(), frequencyInMs);
   }
 
-  private void schedule(final Iterator<Runnable> runnables, final int frequencyInMs){
-    if(!runnables.hasNext()){
+  private void schedule(final Iterator<Runnable> runnables, final int frequencyInMs) {
+    if (!runnables.hasNext()) {
       return;
     }
     new Handler().postDelayed(new Runnable() {

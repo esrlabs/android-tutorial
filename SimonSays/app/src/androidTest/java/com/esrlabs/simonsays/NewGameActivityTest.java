@@ -17,20 +17,20 @@ import static org.robolectric.Robolectric.shadowOf;
 @RunWith(RobolectricTestRunner.class)
 public class NewGameActivityTest {
 
-    private NewGameActivity newGameActivity;
+  private NewGameActivity newGameActivity;
 
-    @Before
-    public void setUp() throws Exception {
-        newGameActivity = Robolectric.buildActivity(NewGameActivity.class).create().get();
+  @Before
+  public void setUp() throws Exception {
+    newGameActivity = Robolectric.buildActivity(NewGameActivity.class).create().get();
 
-    }
+  }
 
-    @Test
-    public void newGameButtonStartsPatternPlaybackForLevelThree() throws Exception {
-        View startButton = newGameActivity.findViewById(R.id.startView);
-        startButton.callOnClick();
-        Intent expectedIntent = new Intent(newGameActivity, PatternPlaybackActivity.class);
-        assertThat(shadowOf(newGameActivity).getNextStartedActivity(), is(expectedIntent));
-    }
+  @Test
+  public void newGameButtonStartsPatternPlaybackForLevelThree() throws Exception {
+    View startButton = newGameActivity.findViewById(R.id.startView);
+    startButton.callOnClick();
+    Intent expectedIntent = new Intent(newGameActivity, PatternPlaybackActivity.class);
+    assertThat(shadowOf(newGameActivity).getNextStartedActivity(), is(expectedIntent));
+  }
 
 }

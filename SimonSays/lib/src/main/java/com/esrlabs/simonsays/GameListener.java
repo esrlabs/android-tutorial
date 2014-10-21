@@ -5,7 +5,8 @@ package com.esrlabs.simonsays;
  */
 public interface GameListener {
 
-    void onWin();
-    void onLoose();
+  void onWin();
+
+  void onLoose();
 
 }
