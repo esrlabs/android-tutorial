@@ -17,17 +17,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_red" android:layout_gravity="bottom" android:layout_weight="0.36"
-                android:background="@android:color/holo_red_dark" android:text=" "/>
+                android:background="@android:color/holo_red_dark" android:text=" " android:height="100dp"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_blue" android:layout_gravity="bottom" android:layout_weight="0.30"
-                android:background="@android:color/holo_blue_dark" android:text=" "/>
+                android:background="@android:color/holo_blue_dark" android:text=" " android:height="100dp"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_green" android:layout_gravity="bottom" android:layout_weight="0.32"
-                android:background="@android:color/holo_green_dark" android:text=" "/>
+                android:background="@android:color/holo_green_dark" android:text=" " android:height="100dp"/>
     </LinearLayout>
     <TextView
             android:layout_width="wrap_content"
