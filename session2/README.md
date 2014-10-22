@@ -6,12 +6,13 @@ Learn how to setup an Android project in IntelliJ
 
 ###Steps
 1. Create project: Gradle Android Module
-    1. App name: SimonSays
-    1. Package name: com.esrlabs.simonsays
-    1. Minimum SDK: API 17 (Android 4.2)
-    1. Target SDK: API 19 (Android 4.4)
-    1. Compile With SDK: API 19 (Android 4.4)
-    1. Activity : blank activity
+ 1. App name: SimonSays
+ 1. Package name: com.esrlabs.simonsays
+ 1. Minimum SDK: API 17 (Android 4.2)
+ 1. Target SDK: API 19 (Android 4.4)
+ 1. Compile With SDK: API 19 (Android 4.4)
+ 1. Activity : blank activity
+1. Run newly created application on your phone 
 
 
 ## Tips & Tricks
