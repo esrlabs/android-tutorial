@@ -1,38 +1,39 @@
-# Android & Gradle - a Tutorial
+# Android & Gradle - a hands-on introduction
+ 
+This workshop (hopefully) teaches you everything you need to know to create your next Android applications with IntelliJ and Gradle. Even better, it will also show you how to write fast unit tests for your app. 
+
+Please note, this is not an Android tutorial. It covers only the absolute basics of developing an Android application. Instead it concentrates on setting up everything so that you can focus on what is really important: building a great app. Actually, Andrei and I shaved a whole herd of yaks so that you don't have to.*
+
+The tutorial is still going to be fun as you will learn everything while developing a simple game for your Android phone. 
+
+## Why Android Studio (IntelliJ)?
+
+Android Studio is based on IntelliJ IDEA - the best Java IDE. Enough said.
+
+## Why Gradle?
+
+If you are really wondering why you should use Gradle instead of Ant for building your Android application, then you have never used Ant. In this case, be happy and just use Gradle. Otherwise you wouldn't ask.
+
+## What will you learn? 
+
+- IntelliJ Introduction
+- Creating a simple Android application
+- Building and testing with Gradle
+- How to separate domain logic from Android APIs
+- How to write fast unit tests for Android
+
 
 ## Preparation
 
-- Android Setup -> in advance
-  - download android sdk version X
-  - install android studio vs X
-  - gradle ?
+ - Make sure to have a Java 1.7 installation
+ - Download the latest [android sdk](https://developer.android.com/sdk/installing/index.html?pkg=tool://developer.android.com/sdk/installing/index.html?pkg=toolsd)
+ - Set the `ANDROID_HOME` environment variable to the android sdk folder
+ - Add `$ANDROID_HOME/platform-tools` to your path
+ - Install the latest [IntelliJ 14 Version](http://confluence.jetbrains.com/display/IDEADEV/IDEA+14+EAP) (we do need the newest version)
 
-## Outline
+## What do you need to bring?
 
-### What will we learn today
+- Laptop
+- Android phone with USB cable
 
-- Why gradle & android studio?
-- How to use android studio 
-- Learn how to perform basic tasks in gradle
-  - define custom tasks (new tasks, extend tasks, task configuration)
-  - task dependencies
-  - task inputs / outputs
-  - build & test android apps
-  - multi projects
-- Learn how to build and test a java library 
-  - build & test with gradle
-- Learn how to build and test an android application 
-  - build with gradle
-  - dependencies to plain java lib
-  - run unit tests with robolectric
-  - run integration tests
-
-### Example
-
-- Simon Says game https://www.youtube.com/watch?v=_UCnn4BI9S4
-
-### Steps
-
-1. Setup new android project in Android Studio
-2. Create a new library project
 
