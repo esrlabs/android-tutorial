@@ -35,10 +35,5 @@ Learn how to setup an Android project in IntelliJ
         } else {    
             commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'
         }
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        commandLine 'cmd', '/c', 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'
-    } else {    
-        commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'
-    }
     }
     ```
