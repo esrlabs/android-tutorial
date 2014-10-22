@@ -9,9 +9,9 @@ Learn how to setup an Android project in IntelliJ
 - Android gradle tasks
 
     ```
-    $./gradlew assembleDebug  # creates a debug version of your app
-    $./gradlew installDebug   # installs a debug version to any connected device or emulator
+    $./gradlew assembleDebug  # build apk
+    $./gradlew installDebug   # installs apk
     $./gradlew test 
     ```
-
+- IntelliJ cheat sheets for  [windows](https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard.pdf) and [Mac](https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard_Mac.pdf)
 
