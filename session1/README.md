@@ -14,10 +14,13 @@ Create a build script which will read from a Groovy properties file the values f
 1. To parse the file using groovy please refer to this [link](http://groovy.codehaus.org/ConfigSlurper).
 1. To write to a file use : 
 
-			def writer = new PrintWriter(new File(outputJavaFile))
-			writer.println('stuff to write')
-			...
-			writer.close()
+```groovy
+def hello = "Hallo"
+def name = "Android"
+new File("test.txt").text ='''
+    ${hello} ${name}
+'''
+```
 			
 1. Use the java plugin to create the jar file
 
