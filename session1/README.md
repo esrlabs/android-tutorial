@@ -15,7 +15,7 @@ Create a gradle build script which will read from a properties file values for j
     def properties = new Properties()
     properties.load(new FileInputStream("input.properties"))
     properties.each { key, value -> 
-    println "${key} = ${value}" 
+        println "${key} = ${value}" 
     };
     ```
     
