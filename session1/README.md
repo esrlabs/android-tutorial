@@ -29,7 +29,8 @@ Create a gradle build script which will read from a properties file values for j
     '''
     ```
 
-1. Use the java plugin to create the jar file
+1. Use the java plugin to create the jar file.
+1. Make the build incremental.
 
 ###Things to watch out for
 - The default project structure of the java plugin
