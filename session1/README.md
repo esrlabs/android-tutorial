@@ -10,16 +10,15 @@ Create a gradle build script which will read from a properties file values for j
 
 ###Steps
 
-1. Create a properties file 
-    1. Save it as config.groovy  
-    2. Values should be stored as 
-    
+1. Create a task which will read the values from the properties file and print them.
     ```groovy
-    pi=3.1416
+    def properties = new Properties()
+    properties.load(new FileInputStream("input.properties"))
+    properties.each { key, value -> 
+    println "${key} = ${value}" 
+    };
     ```
-
-1. Create a task which will read the values from the config.groovy file and print them.
-    1. To parse the file using groovy please refer to this [link](http://groovy.codehaus.org/ConfigSlurper).
+    
 1. Create a task which will use the previously read values and generate a java class containing java constants. 
     1. To write to a file use: 
     ```groovy
