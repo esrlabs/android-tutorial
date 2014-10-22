@@ -6,14 +6,22 @@ Get to know the basic of gradle.
 
 ##Task
 
-Create a build script which will read from a properties file the values for Pi, SQRT(2) and will create class containing these values as constants. At the end it should build a jar.
+Create a gradle build script which will read from a properties file values for java constants (such as the value for Pi). A java class containing these constants will be generated and archived into a jar. The build process should be at first non-incremental and then incremental.
 
 ###Steps
 
-1. Create a .groovy file which will contain the values for the two constants in the following format pi=3.1416.
-1. Create a task which will print the read values
-1. To parse the file using groovy please refer to this [link](http://groovy.codehaus.org/ConfigSlurper).
-1. To write to a file use : 
+1. Create a properties file 
+    1. Save it as config.groovy  
+    2. Values should be stored as 
+    
+    ```groovy
+    pi=3.1416
+    ```
+
+1. Create a task which will read the values from the config.groovy file and print them.
+    1. To parse the file using groovy please refer to this [link](http://groovy.codehaus.org/ConfigSlurper).
+1. Create a task which will use the previously read values and generate a java class containing java constants. 
+    1. To write to a file use: 
     ```groovy
     def hello = "Hallo"
     def name = "Android"
@@ -21,7 +29,7 @@ Create a build script which will read from a properties file the values for Pi, 
         ${hello} ${name}
     '''
     ```
-			
+
 1. Use the java plugin to create the jar file
 
 ###Things to watch out for
