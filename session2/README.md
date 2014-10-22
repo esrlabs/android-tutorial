@@ -27,12 +27,13 @@ Learn how to setup an Android project in IntelliJ
 - IntelliJ cheat sheets for  [windows](https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard.pdf) and [Mac](https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard_Mac.pdf)
 
 - gradle task to launch the Android app directly onto the device
-
-			import org.apache.tools.ant.taskdefs.condition.Os
-			task launchDebug(type: Exec, dependsOn: 'installDebug') {
-				if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-					commandLine 'cmd', '/c', 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'
-    			} else {
-        				commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'
-    			}
-			}
+    ```groovy
+    import org.apache.tools.ant.taskdefs.condition.Os
+    task launchDebug(type: Exec, dependsOn: 'installDebug') {
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            commandLine 'cmd', '/c', 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'
+        } else {    
+            commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.esrlabs.simonsays/.NewGameActivity'
+        }
+    }
+    ```
