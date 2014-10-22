@@ -34,3 +34,7 @@ Create a gradle build script which will read from a properties file values for j
 
 ###Things to watch out for
 - The default project structure of the java plugin
+
+## Tips & Tricks
+- Hints on how to add incremental build support to a task [here](http://www.gradle.org/docs/current/userguide/more_about_tasks.html#sec:up_to_date_checks) and [here](http://mrhaki.blogspot.de/2010/10/gradle-goodness-add-incremental-build.html) 
+- More about tasks [here](http://www.gradle.org/docs/current/userguide/more_about_tasks.html)
