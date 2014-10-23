@@ -37,3 +37,4 @@ The goal of this session is to get to know the basics of IntelliJ and Android. Y
         }
     }
     ```
+[Go to Session 3](https://github.com/esrlabs/android-tutorial/tree/master/session3)
