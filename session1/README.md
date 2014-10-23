@@ -44,7 +44,7 @@ class Constants {
 - The default project structure of the java plugin.
 
 ## Tips & Tricks
-- More about defining and accessing a task
+- Defining tasks and task dependencies
     * Defining a simple task
 
         ```groovy
