@@ -39,6 +39,7 @@ The goal of this session is to get to know the basics of IntelliJ and Android. Y
     ```
 
 - The activity life cycle 
+
       ![The activity life cycle](img/activity_lifecycle.png?raw=true "The activity life cycle")
 
 [Go to Session 3](https://github.com/esrlabs/android-tutorial/tree/master/session3)
