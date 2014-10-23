@@ -28,3 +28,4 @@ As Android is not needed for implementing the game engine, you should implement 
 - Don't start too complicated. What is simplest API to solve our problem? We don't know yet what we are going to need...
 - How do we test generating a random sequence? Do we need to test it?
 
+[Go to Session 4](https://github.com/esrlabs/android-tutorial/tree/master/session4)
