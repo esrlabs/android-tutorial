@@ -38,31 +38,30 @@ The challenge is to cover as much functionality with your unit tests as possible
                ...
             
                dependencies {
-            
-  androidTestCompile 'org.hamcrest:hamcrest-core:1.3'
-  androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
+                 androidTestCompile 'org.hamcrest:hamcrest-core:1.3'
+                 androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
 
-  androidTestCompile('junit:junit:4.11') {
-    exclude module: 'hamcrest-core'
-  }
-  androidTestCompile('org.robolectric:robolectric:2.3') {
-    exclude module: 'classworlds'
-    exclude module: 'commons-logging'
-    exclude module: 'httpclient'
-    exclude module: 'maven-artifact'
-    exclude module: 'maven-artifact-manager'
-    exclude module: 'maven-error-diagnostics'
-    exclude module: 'maven-model'
-    exclude module: 'maven-project'
-    exclude module: 'maven-settings'
-    exclude module: 'plexus-container-default'
-    exclude module: 'plexus-interpolation'
-    exclude module: 'plexus-utils'
-    exclude module: 'wagon-file'
-    exclude module: 'wagon-http-lightweight'
-    exclude module: 'wagon-provider-api'
-  }
-  androidTestCompile 'org.mockito:mockito-all:1.9.5'
+                 androidTestCompile('junit:junit:4.11') {
+                   exclude module: 'hamcrest-core'
+                 }
+                 androidTestCompile('org.robolectric:robolectric:2.3') {
+                   exclude module: 'classworlds'
+                   exclude module: 'commons-logging'
+                   exclude module: 'httpclient'
+                   exclude module: 'maven-artifact'
+                   exclude module: 'maven-artifact-manager'
+                   exclude module: 'maven-error-diagnostics'
+                   exclude module: 'maven-model'
+                   exclude module: 'maven-project'
+                   exclude module: 'maven-settings'
+                   exclude module: 'plexus-container-default'
+                   exclude module: 'plexus-interpolation'
+                   exclude module: 'plexus-utils'
+                   exclude module: 'wagon-file'
+                   exclude module: 'wagon-http-lightweight'
+                   exclude module: 'wagon-provider-api'
+                 }
+                 androidTestCompile 'org.mockito:mockito-all:1.9.5'
                }
 
 
