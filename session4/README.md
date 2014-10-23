@@ -46,7 +46,7 @@ The challenge is to cover as much functionality with your unit tests as possible
 
 ###Testing with Robolectric 
 
-Robolectric is a framework that allows you to write unit tests and run them on a desktop JVM. It mocks part of the Android framework contained in the android.jar file. This is what a JUnit test with Robolectric looks like (note the Annotations in front of the class header):
+Robolectric is a framework that allows you to write unit tests and run them on a desktop JVM. It mocks part of the Android framework contained in the android.jar file. This is what a JUnit test with Robolectric looks like (note the annotations in front of the class header):
 
 ```java
 @Config(manifest = "src/main/AndroidManifest.xml", resourceDir = "res", emulateSdk = 18)
