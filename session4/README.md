@@ -108,7 +108,10 @@ public void clickOnStartButtonStartsGame(){
 
 ###Things to watch our for
 
-- Do not block the [UI thread](https://developer.android.com/training/multiple-threads/communicate-ui.html).
+- Avoid blocking the [Android UI thread](https://developer.android.com/training/multiple-threads/communicate-ui.html).
+- Currently it is not possible to execute Robolectric based unit tests from IntelliJ. However, IntelliJ will show your unit tests, when you execute the gradle `test` task from within IntelliJ.
+
+      ![Executing gradle tests](img/gradle_task_view.png?raw=true "Executing Gradle tasks from within IntelliJ")
 
 ###Tips & Tricks
 
