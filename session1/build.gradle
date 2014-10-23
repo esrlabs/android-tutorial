@@ -1,0 +1,16 @@
+apply plugin: 'java'
+task generateJavaClass {
+    outputs.file file("src/main/java/Constants.java")
+    inputs.file file("input.properties") 
+    doLast {
+        def properties = new Properties()
+        properties.load(new FileInputStream("input.properties"))
+        def constants = properties.collect{ key, value -> "\tpublic static String $key =  $value;"  }.join('\n')
+
+        def classContentString = "public class Constants { " + "\n" + constants + "\n}"
+        //println(classContentString)
+        file("src/main/java/Constants.java").text = classContentString 
+    }
+}
+
+compileJava.dependsOn generateJavaClass
