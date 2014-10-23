@@ -7,9 +7,6 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by andreibechet on 06/10/14.
- */
 public class JavaRandomElementPickerTest {
 
   @Test
