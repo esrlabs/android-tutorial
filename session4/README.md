@@ -27,17 +27,18 @@ The challenge is to cover as much functionality with your unit tests as possible
                      jcenter()
                  }
                  dependencies {
-                    classpath 'com.android.tools.build:gradle:0.13.0'
-            >>      classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'
+                   classpath 'com.android.tools.build:gradle:0.13.0'
+                   classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'  // << TODO
                  }
                }
             
                apply plugin: 'com.android.application'
-            >> apply plugin: 'robolectric'
+               apply plugin: 'robolectric'                                       // << TODO
             
                ...
             
-               dependencies {
+               dependencies {                                                    // << TODO
+                 compile project(":lib")
                  androidTestCompile 'org.hamcrest:hamcrest-core:1.3'
                  androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
 
