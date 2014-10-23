@@ -17,15 +17,16 @@ The goal of this session is to get to know the basics of IntelliJ and Android. Y
 
 ## Tips & Tricks
 
-- use the gradlew to run gradle commands
+- use gradlew to run gradle commands
     ```
     $./gradlew assembleDebug  # build apk
     $./gradlew installDebug   # installs apk
     $./gradlew test           # run tests
     ```
+    
 - IntelliJ cheat sheets for  [windows](https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard.pdf) and [Mac](https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard_Mac.pdf)
 
-- gradle task to launch the Android app directly onto the device
+- Gradle task to launch the Android app directly onto the device
     ```groovy
     import org.apache.tools.ant.taskdefs.condition.Os
     task launchDebug(type: Exec, dependsOn: 'installDebug') {

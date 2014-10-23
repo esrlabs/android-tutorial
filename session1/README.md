@@ -48,15 +48,6 @@ class Constants {
     * Defining a simple task
 
         ```groovy
-        task hello {
-          doLast {
-            println 'Hello world!'
-          }
-        }
-        ```
-        or shortcut task definition:
-        
-        ```groovy
         task hello << {
           println 'Hello world!'
         }
@@ -72,7 +63,9 @@ class Constants {
           println "I'm Gradle"
         }
         ```
+        
         or 
+        
         ```groovy
         task hello << {
           println 'Hello world!'
@@ -86,51 +79,56 @@ class Constants {
 - How to parse the values from the properties file and generate a string
 
     ```groovy
+    // loading the file
     def properties = new Properties()
     properties.load(new FileInputStream("input.properties"))
-    def constants = properties.collect{ key, value -> key + '=' + value + '\n' }.join() 
+    
+    // joining properties into a single string
+    def constants = properties.collect{ key, value -> 
+      "$key = $value"
+    }.join("\n") 
     ```
     
-- Gradle has a very powerful incremental build feature. This means Gradle will not execute a task unless it is necessary. We can help Gradle and configure our task so it is ready for an incremental build. A Gradle task has an inputs and outputs property. We can assign a file(s), dir or properties as inputs to be checked. For outputs we can assign a file, dir or custom code in a closure to determine the output of the task. Gradle uses these values to determine if a task needs to be executed.
+- Gradle has a very powerful incremental build feature. This means Gradle will not execute a task unless until necessary. We can help Gradle and configure our task so it is ready for an incremental build. Every Gradle task has an inputs and outputs property. We can assign a file(s), directories or properties as inputs to be checked for changes. For outputs we can also assign a file, directory or custom code in a closure to determine the output of the task. Gradle uses these values to determine if a task needs to be executed.
 
-  In the following example task `generate` will generate a file containing some text. 
-    
-    ```groovy
-    task generate {
-      outputs.file file("input.txt")
-      doLast {
-        println "generating"
-        file("input.txt").text = "hello"
+    In the following example task `generate` will generate a file containing some text. 
+      
+      ```groovy
+      task generate {
+        outputs.file file("input.txt")
+        doLast {
+          println "generating"
+          file("input.txt").text = "hello"
+        }
       }
-    }
-    task compile(dependsOn: generate) << {
-      println "compiling"
-    }
-    ```
-    
-  Let's run the `compile` task for the first time. The console output will be:
+      task compile(dependsOn: generate) << {
+        println "compiling"
+      }
+      ```
+      
+    Let's run the `compile` task for the first time. The console output will be:
+  
+      ```
+      $ gradle compile
+      :generate
+      generating
+      :compile
+      compiling
+      
+      BUILD SUCCESSFUL
+      ```
+    Now we run it again and notice how Gradle tells us the task is UP-TO-DATE:
+      
+      ```
+      $ gradle compile
+      :generate UP-TO-DATE
+      :compile
+      compiling
+  
+      BUILD SUCCESSFUL
+      ```    
 
-    ```
-    $ gradle compile
-    :generate
-    generating
-    :compile
-    compiling
-    
-    BUILD SUCCESSFUL
-    ```
-  Now we run it again and notice how Gradle tells us the task is UP-TO-DATE:
-    
-    ```
-    $ gradle compile
-    :generate UP-TO-DATE
-    :compile
-    compiling
-
-    BUILD SUCCESSFUL
-    ```    
-
-  Notice that the `generate` task doesn't need to be executed as nothing has changed, hence it is marked UP-TO-DATE. 
+    Notice that the `generate` task doesn't need to be executed as nothing has changed, hence it is marked `UP-TO-DATE` .
 
 - More about tasks [here](http://www.gradle.org/docs/current/userguide/more_about_tasks.html)
 - More details on how to add incremental build support to a task [here](http://www.gradle.org/docs/current/userguide/more_about_tasks.html#sec:up_to_date_checks)
