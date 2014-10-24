@@ -56,4 +56,4 @@ public class MyTest {
 }
 ```
 
-[Go to Session 4](https://github.com/esrlabs/android-tutorial/tree/master/session4)
+[Go to Session 4](https://github.com/esrlabs/android-tutorial/tree/master/session4/README.md)

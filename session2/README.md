@@ -41,4 +41,4 @@ Over the next three sessions you will implement the game [Simon Says](https://ww
 
       ![The activity life cycle](img/activity_lifecycle.png?raw=true "The activity life cycle")
 
-[Go to Session 3](https://github.com/esrlabs/android-tutorial/tree/master/session3)
+[Go to Session 3](https://github.com/esrlabs/android-tutorial/tree/master/session3/README.md)

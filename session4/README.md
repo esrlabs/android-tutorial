@@ -14,7 +14,7 @@ The challenge is to cover as much functionality with your unit tests as possible
 
 ###Steps
 
-1. Start with the project from the previous session. If you weren't finished, you can checkout a working setup via `git checkout -b origin/sesssion1`.
+1. Start with the project from the previous session. If you weren't finished, you can checkout a working setup via `git checkout sesssion3-solution`.
 1. We will use [Robolectric](http://robolectric.org/) to execute our tests without an actual Android device. This has the following advantages:
     * faster test execution
     * easy to run on jenkins

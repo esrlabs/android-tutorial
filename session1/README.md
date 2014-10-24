@@ -134,5 +134,5 @@ class Constants {
 - More details on how to add incremental build support to a task [here](http://www.gradle.org/docs/current/userguide/more_about_tasks.html#sec:up_to_date_checks)
 - More details on the java plugin [here](http://www.gradle.org/docs/current/userguide/java_plugin.html)
 
-[Go to Session 2](https://github.com/esrlabs/android-tutorial/tree/master/session2)
+[Go to Session 2](https://github.com/esrlabs/android-tutorial/tree/master/session2/README.md)
 
