@@ -6,7 +6,7 @@ Learn how to build and test a plain Java project.
 
 ##Task
 
-Over the next three sessions you will implement the game [Simon Says](https://www.youtube.com/watch?v=_UCnn4BI9S4) for an android phone. In this session you start by implementing the core game engine. The basic features are: 
+In this session you start by implementing the core game engine. The basic features are: 
 
 - Given a number n, generate a random sequence of colors (red, blue, green) of length *n*.
 - The player has to enter the same colors in the correct order. 

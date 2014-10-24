@@ -2,7 +2,7 @@
 
 ##Goal 
 
-The goal of this session is to get to know the basics of IntelliJ and Android. You will learn how to create an Android project in IntelliJ and deploy your app for the first time. 
+Over the next three sessions you will implement the game [Simon Says](https://www.youtube.com/watch?v=_UCnn4BI9S4) for an android phone. The goal of this session is to get to know the basics of IntelliJ and Android. You will learn how to create an Android project in IntelliJ and deploy your app for the first time. 
 
 ###Steps
 
