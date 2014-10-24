@@ -136,4 +136,3 @@ class Constants {
 
 [Go to Session 2](https://github.com/esrlabs/android-tutorial/tree/master/session2)
 
-

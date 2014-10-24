@@ -25,7 +25,35 @@ As Android is not needed for implementing the game engine, you should implement 
 
 ###Things to watch our for
 
-- Don't start too complicated. What is simplest API to solve our problem? We don't know yet what we are going to need...
+- Don't start too complicated. What is the simplest usable API to solve our problem? Remember, we don't know yet what we are going to need...
 - How do we test generating a random sequence? Do we need to test it?
+
+###Tips & Tricks
+
+A little JUnit primer:
+
+```java
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+public class MyTest {
+
+  @Before
+  public void setup(){
+    // optional setup 
+  }
+  
+  @Test
+  public void myTest(){
+    boolean myBool = true;
+    assertTrue(myBool);
+    assertFalse(!myBool);
+    assertEquals(myBool, false);
+    assertThat(myBool, is(true));
+    assertThat(myBool, is(not(false)));
+  }
+
+}
+```
 
 [Go to Session 4](https://github.com/esrlabs/android-tutorial/tree/master/session4)

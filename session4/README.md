@@ -168,6 +168,31 @@ public void clickOnStartButtonStartsGame(){
       }
     }, 100);
     ``` 
+ ```java   
+ 
+- Mockito primer:
+
+      ```java
+      //Let's import Mockito statically so that the code looks clearer
+       import static org.mockito.Mockito.*;
+       
+       //mock creation
+       List mockedList = mock(List.class);
+
+       //using mock object
+       mockedList.add("one");
+       mockedList.clear();
+
+       //verification
+       verify(mockedList).add("one");
+       verify(mockedList).clear();
+       
+       //stubbing
+       when(mockedList.get(0)).thenReturn("first");
+       when(mockedList.get(1)).thenThrow(new RuntimeException());
+       
+      ```
 
 - [Android Studio designer tutorial](http://www.techotopia.com/index.php/Designing_a_User_Interface_using_the_Android_Studio_Designer_Tool)
 
+[Next session](session4/README.md)
