@@ -35,7 +35,7 @@ class Constants {
 1. Create a directory for our java source files according to the Gradle conventions: `src/main/java`.
 1. Manually create a properties file: `input.properties` with some example string values.
 1. Inside `build.gradle`, create a task `compileProperties` which parses the values from the properties file and generates the java constants class into the `src/main/java` folder.
-1. Compile your project into a jar.
+1. Compile your project into a jar using the java plugin (`apply plugin: java` -> `gradle jar`).
 1. Make sure that the task `compileProperties` is always performed before our java classes are compiled.
 1. Make the task `compileProperties` only compile if the input or output file has changed.
 
@@ -76,6 +76,7 @@ class Constants {
         intro.dependsOn hello
         ```
 
+- listing all available Gradle tasks: `gradlew tasks`
 - How to parse the values from the properties file and generate a string
 
     ```groovy
